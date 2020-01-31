@@ -1,6 +1,6 @@
 /******************************************************************************
 
-                          Linked List Add, delete, Insert, Print Operation
+                          Queue Implementation Using Single Linked List
 
 *******************************************************************************/
 
@@ -154,6 +154,23 @@ Node* insert(Node* start, int data, int pos)
     return start;
 }
 
+Node* invert(Node* start)
+{
+    Node* cur = start;
+    Node* prev = NULL;
+    
+    while(cur)
+    {
+        Node* next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        
+        cur = next;
+    }
+    
+    return prev;
+}
+
 int main()
 {
     Node* start = NULL;
@@ -163,7 +180,7 @@ int main()
     
     do
     {
-        printf("1 - Insert  2 - Delete  3 - Print  4 - Print   5 - Exit\n");
+        printf("1 - Insert  2 - Delete  3 - Print  4 - Invert 5 - Print\n");
         scanf("%d", &ch);
         switch(ch)
         {
@@ -193,6 +210,11 @@ int main()
                 break;
             }
             case 4:
+            {
+                start = invert(start);
+                break;
+            }
+            case 5:
             {
                 print(start);
                 break;

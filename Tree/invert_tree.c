@@ -134,6 +134,7 @@ int main()
             case 2:
             {
                 invert(pTree);
+                break;
             }
             case 3:
             {

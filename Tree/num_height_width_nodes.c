@@ -1,6 +1,6 @@
 /******************************************************************************
 
-                         Num Height Width Nodes Implementation
+                          Num Height Width Nodes Implementation
 
 *******************************************************************************/
 
@@ -161,6 +161,21 @@ int width(Node* pTree)
     return max_count;
 }
 
+int numLeaf(Node* pTree)
+{
+    if(pTree == NULL)
+    {
+        return 0;
+    }
+    
+    if((!pTree->left) && (!pTree->right))
+    {
+        return 1;
+    }
+    
+    return(numLeaf(pTree->left) + numLeaf(pTree->right));
+}
+
 int main()
 {
     Node* pTree = NULL;
@@ -168,7 +183,7 @@ int main()
     int ch;
     do
     {
-        printf("Enter 1 - Add  2 - Num Nodes 3 - Height  4 - Width 5 - Exit\n");
+        printf("Enter 1 - Add  2 - Num Nodes 3 - Height  4 - Width 5 - Num Leaf  6 - Level Order 7 - Exit\n");
         scanf("%d", &ch);
         
         switch(ch)
@@ -201,6 +216,12 @@ int main()
                 break;
             }
             case 5:
+            {
+                int l = numLeaf(pTree);
+                printf("Number of leaf Nodes is %d\n", l);
+                break;
+            }
+            case 6:
             {
                 levelOrder(pTree);
                 break;

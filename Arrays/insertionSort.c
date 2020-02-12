@@ -21,7 +21,7 @@ void insertionSort(int A[], int n)
         int data = A[i];
         int j = i-1;
         
-        while(A[j] > data)
+        while((j > 0) && (A[j] > data))
         {
             A[hole--] = A[j--];
         }
